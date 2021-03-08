@@ -1,12 +1,12 @@
 require "csv"
-puts "1(新規でメモを作成)または2(メモを追加する)を選んでください"        #画面に出力
-memo_type = gets.chomp                           #改行文字を入れずにキーボードからの値を入力
+puts "1(新規でメモを作成)または2(メモを追加する)を選んでください"        
+memo_type = gets.chomp                           
 
 if memo_type == "1"
   puts "拡張子を除いたファイル名を入力してください"
-  file_name = gets.chomp                         #改行文字を入れずにキーボードからの値を入力
+  file_name = gets.chomp                         
   puts "メモしたい内容を入力してください。入力が終わったらenterを押してください。"
-  memo_text = gets.chomp                    #複数行の値をキーボードから取得
+  memo_text = gets.chomp                    
 CSV.open("#{file_name}.csv", 'w') do |csv|
   csv << ["#{memo_text}"]
 end
